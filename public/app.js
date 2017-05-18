@@ -21,7 +21,7 @@ $(document).on("click", "p", function() {
     .done(function(data) {
       console.log(data);
       // The title of the story
-      $("#comments").append("<h2>" + data.my_name + "</h2>");
+      $("#comments").append("<h2>" + data.title + "</h2>");
       // An input to enter a new name
       $("#comments").append("<input id='nameinput' name='my_name' >");
       // A textarea to add a new comment body
@@ -31,10 +31,12 @@ $(document).on("click", "p", function() {
 
       // If there's a note in the article
       if (data.comment) {
+
+      	
         // Place the title of the note in the title input
-        $("#nameinput").val(data.note.my_name);
+        $("#nameinput").val(data.comment.my_name);
         // Place the body of the note in the body textarea
-        $("#bodyinput").val(data.note.body);
+        $("#bodyinput").val(data.comment.body);
       }
     });
 });
