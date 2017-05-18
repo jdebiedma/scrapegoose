@@ -1,0 +1,29 @@
+{
+  "name": "scrapegoose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdebiedma/scrapegoose.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdebiedma/scrapegoose/issues"
+  },
+  "homepage": "https://github.com/jdebiedma/scrapegoose#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cheerio": "^0.22.0",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.9.9",
+    "morgan": "^1.8.1",
+    "request": "^2.81.0"
+  }
+}
