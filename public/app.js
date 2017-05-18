@@ -49,7 +49,7 @@ $(document).on("click", "#submitComment", function() {
     url: "/stories/" + thisId,
     data: {
       // Value taken from name input
-      my_name: $("#nameinput").val()
+      my_name: $("#nameinput").val(),
       // Value taken from comment textarea
       body: $("#bodyinput").val()
     }

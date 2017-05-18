@@ -28,7 +28,7 @@ app.use(express.static("public"));
 //mongoose.connect("mongodb://heroku_tgwf8wm9:1qp0m0oncb3mocvqm9mp4iepcc@ds143231.mlab.com:43231/heroku_tgwf8wm9");
 
 
-mongoose.connect("mongodb://localhost/mongoosearticles");
+mongoose.connect("mongodb://localhost/scrapegoose");
 var db = mongoose.connection;
 
 
@@ -79,6 +79,20 @@ app.get("/scrape", function(req, res) {
   res.send("Scrape Complete");
 });
 
+app.get("/stories", function(req, res) {
+  // Grab every doc in the Stories array
+  Story.find({}, function(error, doc) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Or send the doc to the browser as a json object
+    else {
+      res.json(doc);
+    }
+  });
+});
+
 app.get("/stories/:id", function(req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
   Story.findOne({ "_id": req.params.id })
@@ -110,7 +124,7 @@ app.post("/stories/:id", function(req, res) {
     // Otherwise
     else {
       // Use the article id to find and update it's note
-      Story.findOneAndUpdate({ "_id": req.params.id }, { "note": doc._id })
+      Story.findOneAndUpdate({ "_id": req.params.id }, { "comment": doc._id })
       // Execute the above query
       .exec(function(err, doc) {
         // Log any errors
